@@ -4,11 +4,15 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 from selenium.common.exceptions import WebDriverException
+import os
 
 MAX_WAIT = 10
 class NewVisitorTest(StaticLiveServerTestCase):                #(1)
 	def setUp(self):
 		self.browser = webdriver.Chrome()
+#		staging_server = os.environ.get('STAGING_SERVER')
+#		if staging_server:
+		self.live_server_url = 'http://121.199.54.178'
 
 	def tearDown(self):
 		self.browser.quit()
